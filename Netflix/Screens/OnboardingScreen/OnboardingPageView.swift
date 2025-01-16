@@ -10,8 +10,8 @@ import SwiftUI
 struct OnboardingPageView: View {
     @Binding var isSignupTapped: Bool
     @Binding var pageIndex: Int
-    @State var info: OnboardingInfoModel
-    @State var pageNumbers: Int
+    var info: OnboardingInfoModel
+    var pageNumbers: Int
     
     
     var body: some View {
@@ -47,14 +47,7 @@ struct OnboardingPageView: View {
                     isSignupTapped = true
                 }) {
                     Text(Strings.signUp)
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.red)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                        .padding(.horizontal, 16)
+                        .buttonStyle()
                 }
             }
         }
@@ -83,14 +76,7 @@ struct OnboardingPageView: View {
             isSignupTapped = true
         }) {
             Text(Strings.signIn)
-                .font(.headline)
-                .fontWeight(.bold)
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.red)
-                .foregroundColor(.white)
-                .cornerRadius(8)
-                .padding(.horizontal, 16)
+                .buttonStyle()
         }
         .padding(.bottom,  15)
         .frame(maxHeight: .infinity, alignment: .bottom)

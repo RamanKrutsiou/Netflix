@@ -13,21 +13,14 @@ struct OnboardingView: View {
     
     @State var scrollIndex: Int = 0
     @State var signUpDidTapped: Bool = false
-    @State var onboardingInfo: OnboardingInfoModel
     
     
     var body: some View {
-        if store.onboardingInfo.isEmpty {
-            ProgressView()
-                .onAppear {
-                    store.send(.fetchOnbaordingInfo)
-                    onboardingInfo = store.onboardingInfo[scrollIndex]
-                }
-        } else {
+        if !store.onboardingInfo.isEmpty {
             OnboardingPageView(
                 isSignupTapped: $signUpDidTapped,
                 pageIndex: $scrollIndex,
-                info: onboardingInfo,
+                info: store.onboardingInfo[scrollIndex],
                 pageNumbers: store.numberOfOnboardingPages
             )
             .gesture(
@@ -41,10 +34,13 @@ struct OnboardingView: View {
             )
             .onChange(of: signUpDidTapped, initial: false) { _,_  in store.send(.signInDidTapped) }
             .onChange(of: scrollIndex, initial: false) { _,_  in
-                if store.numberOfOnboardingPages == scrollIndex - 1 {
-                    store.send(.userFinishedOnboarding)
-                }
+                store.send(.pageIndexChanged(scrollIndex))
             }
+        } else {
+            ProgressView()
+                .onAppear {
+                    store.send(.fetchOnbaordingInfo)
+                }
         }
     }
 }

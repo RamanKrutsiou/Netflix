@@ -20,7 +20,7 @@ struct OnboardingReducer {
     enum Action {
         case fetchOnbaordingInfo
         case signInDidTapped
-        case userFinishedOnboarding
+        case pageIndexChanged(Int)
         case onboardingInfoResponse([OnboardingInfoModel])
     }
     
@@ -35,8 +35,10 @@ struct OnboardingReducer {
             case .signInDidTapped:
                 // TODO: - Login action
                 return .none
-            case .userFinishedOnboarding:
-                appSettingsService.setOnboardingCompleted(true)
+            case let .pageIndexChanged(index):
+                if index == state.numberOfOnboardingPages - 1 {
+                    appSettingsService.setOnboardingCompleted(true)
+                }
                 return .none
             case let .onboardingInfoResponse(info):
                 state.onboardingInfo = info
