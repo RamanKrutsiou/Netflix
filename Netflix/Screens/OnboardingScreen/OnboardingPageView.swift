@@ -16,7 +16,7 @@ struct OnboardingPageView: View {
     
     var body: some View {
         ZStack {
-            Image("Onboarding")
+            Image(Strings.Resources.Images.onboardingImage)
                 .resizable()
                 .ignoresSafeArea()
             

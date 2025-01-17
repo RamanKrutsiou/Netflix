@@ -12,7 +12,7 @@ struct SplashScreen: View {
     let store: StoreOf<ShpalshScreenReducer>
     
     var body: some View {
-        Image("SplashLogo")
+        Image(Strings.Resources.Images.splashImage)
             .onAppear {
                 store.send(.splashScreenDidAppear)
             }
@@ -20,7 +20,9 @@ struct SplashScreen: View {
 }
 
 #Preview {
-    SplashScreen(store: Store(initialState: ShpalshScreenReducer.State(), reducer: {
-        ShpalshScreenReducer()
-    }))
+    SplashScreen(store: Store(initialState:
+                                ShpalshScreenReducer.State(),
+                              reducer: { ShpalshScreenReducer() }
+                             )
+    )
 }

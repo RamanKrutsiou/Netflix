@@ -9,7 +9,7 @@ import SwiftUI
 import ComposableArchitecture
 
 struct OnboardingView: View {
-    let store: StoreOf<OnboardingReducer>
+    @Bindable var store: StoreOf<OnboardingReducer>
     
     @State var scrollIndex: Int = 0
     @State var signUpDidTapped: Bool = false
@@ -36,11 +36,14 @@ struct OnboardingView: View {
             .onChange(of: scrollIndex, initial: false) { _,_  in
                 store.send(.pageIndexChanged(scrollIndex))
             }
+            .sheet(item: $store.scope(state: \.signUpStore, action: \.childAction)) { _ in
+                SignUpViewControllerWrapper()
+            }
         } else {
-            ProgressView()
-                .onAppear {
-                    store.send(.fetchOnbaordingInfo)
-                }
+            LottieView(animationFileName: Strings.Resources.Animation.loaderAnimation)
+                .frame(width: 100, height: 100)
+                .onAppear { store.send(.fetchOnbaordingInfo) }
+            
         }
     }
 }

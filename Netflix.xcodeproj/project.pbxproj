@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3671551B2D391D1B00D9DC5B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3671551A2D391D1B00D9DC5B /* Lottie */; };
 		369C2A8E2D269D0700749F26 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 369C2A8D2D269D0700749F26 /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
@@ -14,9 +15,22 @@
 		369C2A7B2D269CA700749F26 /* Netflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Netflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		36AFDC512D3A7E5900D1C6B1 /* Exceptions for "Netflix" folder in "Netflix" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 369C2A7A2D269CA700749F26 /* Netflix */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		369C2A7D2D269CA700749F26 /* Netflix */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				36AFDC512D3A7E5900D1C6B1 /* Exceptions for "Netflix" folder in "Netflix" target */,
+			);
 			path = Netflix;
 			sourceTree = "<group>";
 		};
@@ -28,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				369C2A8E2D269D0700749F26 /* ComposableArchitecture in Frameworks */,
+				3671551B2D391D1B00D9DC5B /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +86,7 @@
 			name = Netflix;
 			packageProductDependencies = (
 				369C2A8D2D269D0700749F26 /* ComposableArchitecture */,
+				3671551A2D391D1B00D9DC5B /* Lottie */,
 			);
 			productName = Netflix;
 			productReference = 369C2A7B2D269CA700749F26 /* Netflix.app */;
@@ -102,6 +118,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				369C2A8C2D269D0700749F26 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				367155192D391D1B00D9DC5B /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 369C2A7C2D269CA700749F26 /* Products */;
@@ -264,6 +281,7 @@
 				DEVELOPMENT_TEAM = 97JNMW4GK4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Netflix/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -298,6 +316,7 @@
 				DEVELOPMENT_TEAM = 97JNMW4GK4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Netflix/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -345,6 +364,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		367155192D391D1B00D9DC5B /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.1;
+			};
+		};
 		369C2A8C2D269D0700749F26 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
@@ -356,6 +383,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3671551A2D391D1B00D9DC5B /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 367155192D391D1B00D9DC5B /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
 		369C2A8D2D269D0700749F26 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 369C2A8C2D269D0700749F26 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
