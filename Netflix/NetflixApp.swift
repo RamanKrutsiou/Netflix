@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct NetflixApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OnboardingView(
+                store: Store(initialState: OnboardingReducer.State(),
+                             reducer: { OnboardingReducer() }
+                            )
+            )
         }
     }
 }
